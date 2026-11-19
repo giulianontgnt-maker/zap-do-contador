@@ -308,7 +308,7 @@ const ROUNDS = [
     contato:{ nome:"Seu Jorge", papel:"Dono da Metalúrgica Jorge", ini:"SJ", cor:"#B45309", voz:"mafia" },
     msgs:[
       { t:"Contador. Precisamos conversar. 🎩" },
-      { audio:true, dur:"0:12", t:"Escuta aqui, contador... Vou te fazer uma proposta que você não pode recusar. Se o lucro deste ano sair bem alto no balanço... tem vinte mil reais pra você. Fechado?" }
+      { audio:true, arquivo:"audios/1-seu-jorge.mp3", dur:"0:12", t:"Escuta aqui, contador... Vou te fazer uma proposta que você não pode recusar. Se o lucro deste ano sair bem alto no balanço... tem vinte mil reais pra você. Fechado?" }
     ],
     dica:"Repare: você ganharia dinheiro dependendo do número que <b>você mesmo</b> vai calcular. Dá pra ficar imparcial assim?",
     ameaca:"interesse", grav:"alta",
@@ -329,7 +329,7 @@ const ROUNDS = [
     contato:{ nome:"Marina", papel:"Sua gestora no escritório", ini:"MA", cor:"#7C3AED", voz:"feminina" },
     msgs:[
       { t:"Oi! A folha de pagamento da Padaria Sol tá pronta?" },
-      { audio:true, dur:"0:07", t:"Como foi você que montou a planilha, revisa e aprova você mesmo antes de enviar, tá? Assim a gente ganha tempo." }
+      { audio:true, arquivo:"audios/2-marina.mp3", dur:"0:07", t:"Como foi você que montou a planilha, revisa e aprova você mesmo antes de enviar, tá? Assim a gente ganha tempo." }
     ],
     dica:"Quem confere o próprio trabalho costuma não ver os próprios erros. Precisa recusar a tarefa, ou dá pra resolver com <b>outra pessoa olhando</b>?",
     ameaca:"autorrevisao", grav:"media",
@@ -350,7 +350,7 @@ const ROUNDS = [
     contato:{ nome:"Dona Célia", papel:"Cliente — Ateliê Célia", ini:"DC", cor:"#BE185D", voz:"senhora" },
     msgs:[
       { t:"Feliz Natal, meu querido! 🎄" },
-      { audio:true, dur:"0:06", t:"Deixei uma caixinha de bombons aí no escritório pra você. É só pra agradecer o ano de parceria, viu?" }
+      { audio:true, arquivo:"audios/3-dona-celia.mp3", dur:"0:06", t:"Deixei uma caixinha de bombons aí no escritório pra você. É só pra agradecer o ano de parceria, viu?" }
     ],
     dica:"É um presente <b>pequeno</b>, sem pedir nada em troca. Uma pessoa sensata de fora acharia isso um problema?",
     ameaca:"interesse", grav:"baixa",
@@ -371,7 +371,7 @@ const ROUNDS = [
     contato:{ nome:"Seu Antônio", papel:"Cliente há 12 anos · amigo", ini:"SA", cor:"#0F766E", voz:"compadre" },
     msgs:[
       { t:"E aí, compadre! Churrasco no domingo tá de pé, hein?" },
-      { audio:true, dur:"0:09", t:"Ah, mandei as notas do mês. Lança tudo aí sem conferir, a gente já se conhece há doze anos, né? Confio em você e você em mim." }
+      { audio:true, arquivo:"audios/4-seu-antonio.mp3", dur:"0:09", t:"Ah, mandei as notas do mês. Lança tudo aí sem conferir, a gente já se conhece há doze anos, né? Confio em você e você em mim." }
     ],
     dica:"A amizade é boa, mas está fazendo você <b>conferir menos</b>. Dá pra manter a amizade e ainda assim fazer o trabalho direito?",
     ameaca:"familiaridade", grav:"media",
@@ -392,7 +392,7 @@ const ROUNDS = [
     contato:{ nome:"Rafael", papel:"Sócio da Loja Rafa Móveis", ini:"RF", cor:"#1D4ED8", voz:"mafia" },
     msgs:[
       { t:"Contador, preciso de um favor. Daqueles que a gente não esquece. 🕶️" },
-      { audio:true, dur:"0:12", t:"Amanhã você vem comigo no banco, entendeu? E garante pro gerente que a empresa está ótima. As dívidas... a gente esquece delas. Você fala bonito e ele aprova." }
+      { audio:true, arquivo:"audios/5-rafael.mp3", dur:"0:12", t:"Amanhã você vem comigo no banco, entendeu? E garante pro gerente que a empresa está ótima. As dívidas... a gente esquece delas. Você fala bonito e ele aprova." }
     ],
     dica:"Ele quer que você <b>tome o lado dele</b> e convença o banco — mesmo com dívidas. O que o contador pode mostrar para o banco?",
     ameaca:"defesa", grav:"alta",
@@ -413,7 +413,7 @@ const ROUNDS = [
     contato:{ nome:"Dr. Valter", papel:"Sócio majoritário — Grupo Valter", ini:"DV", cor:"#991B1B", voz:"chefao" },
     msgs:[
       { t:"Vi aqui a dívida trabalhista no balanço. Não gostei. 😠" },
-      { audio:true, dur:"0:13", t:"Presta atenção, contador... Tira essa dívida do balanço. Se não tirar... eu troco de contador. E faço questão que a cidade inteira saiba quem você é." }
+      { audio:true, arquivo:"audios/6-dr-valter.mp3", dur:"0:13", t:"Presta atenção, contador... Tira essa dívida do balanço. Se não tirar... eu troco de contador. E faço questão que a cidade inteira saiba quem você é." }
     ],
     dica:"Ele está te <b>ameaçando</b> para você esconder uma dívida. Algum cuidado extra deixa isso certo, ou é hora de dizer não?",
     ameaca:"intimidacao", grav:"alta",
@@ -439,11 +439,11 @@ const canSpeak = "speechSynthesis" in window && "SpeechSynthesisUtterance" in wi
 /* Perfis de voz: pitch (tom: 0 = bem grave, 1 = normal) e rate (velocidade: 1 = normal).
    Ajuste aqui se quiser deixar mais ou menos "mafioso". */
 const PERFIS = {
-  chefao:   { genero:"m", pitch:0.35, rate:0.78 },  // Dr. Valter — o chefão
-  mafia:    { genero:"m", pitch:0.5,  rate:0.84 },  // Seu Jorge e Rafael
-  compadre: { genero:"m", pitch:0.85, rate:0.98 },  // Seu Antônio — amigão
+  chefao:   { genero:"m", pitch:0.85, rate:0.88 },  // Dr. Valter — o chefão
+  mafia:    { genero:"m", pitch:0.9,  rate:0.92 },  // Seu Jorge e Rafael
+  compadre: { genero:"m", pitch:1.0,  rate:1.0  },  // Seu Antônio — amigão
   feminina: { genero:"f", pitch:1.0,  rate:1.02 },  // Marina
-  senhora:  { genero:"f", pitch:0.9,  rate:0.9  },  // Dona Célia
+  senhora:  { genero:"f", pitch:0.95, rate:0.92 },  // Dona Célia
   neutra:   { genero:"",  pitch:1.0,  rate:1.02 }   // leitura das opções
 };
 const MASC = /antonio|daniel|felipe|ricardo|thiago|donato|fabio|julio|humberto|valerio|nicolau|macerio|male|mascul|pt-br-x-ptd|pt-br-x-pte/i;
@@ -479,7 +479,24 @@ function speak(text, el, perfil){
   u.onend = u.onerror = () => { if(el) el.classList.remove("playing"); if(speakingEl === el) speakingEl = null; };
   speechSynthesis.speak(u);
 }
-function stopSpeak(){ if(canSpeak) speechSynthesis.cancel(); if(speakingEl){ speakingEl.classList.remove("playing"); speakingEl = null; } }
+let player = null;
+function stopSpeak(){
+  if(canSpeak) speechSynthesis.cancel();
+  if(player){ player.pause(); player = null; }
+  if(speakingEl){ speakingEl.classList.remove("playing"); speakingEl = null; }
+}
+/* Toca o áudio gravado (pasta audios/). Se o arquivo não existir, usa a voz do celular. */
+function playMsg(m, el, perfil){
+  if(speakingEl === el){ stopSpeak(); return; }      // 2º toque = parar
+  stopSpeak();
+  if(!m.arquivo){ speak(m.t, el, perfil); return; }
+  const a = new Audio(m.arquivo);
+  player = a; speakingEl = el; el.classList.add("playing");
+  const fim = () => { el.classList.remove("playing"); if(player === a){ player = null; speakingEl = null; } };
+  a.onended = fim;
+  a.onerror = () => { fim(); m.semArquivo = true; delete m.arquivo; speak(m.t, el, perfil); };
+  a.play().catch(() => { if(a.error || a.networkState === 3) return; fim(); });
+}
 
 /* =========================================================
    ESTADO
@@ -541,10 +558,11 @@ function addAudio(m){
   const d = document.createElement("div"); d.className = "audio";
   const bars = [10,18,24,14,20,8,22,16,26,12,18,10,20,14,22,9].map(h => '<i style="height:'+h+'px"></i>').join("");
   d.innerHTML = '<div class="row">' +
-      (canSpeak ? '<button class="play" aria-label="Ouvir o áudio">'+ICON.play+'</button>' : '') +
+      ((canSpeak || m.arquivo) ? '<button class="play" aria-label="Ouvir o áudio">'+ICON.play+'</button>' : '') +
       '<div class="wave" aria-hidden="true">'+bars+'</div><span class="dur">'+m.dur+'</span></div>' +
     '<div class="tr"><small>ÁUDIO TRANSCRITO</small>“'+m.t+'”</div>';
-  if(canSpeak) d.querySelector(".play").onclick = () => speak(m.t, d, ROUNDS[S.r].contato.voz);
+  const pb = d.querySelector(".play");
+  if(pb) pb.onclick = () => playMsg(m, d, ROUNDS[S.r].contato.voz);
   $("feed").appendChild(d); scrollFeed();
 }
 function scrollFeed(){ const f = $("feed"); requestAnimationFrame(() => f.scrollTop = f.scrollHeight); }
